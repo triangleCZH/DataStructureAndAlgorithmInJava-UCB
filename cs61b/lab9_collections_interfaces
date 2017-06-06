@@ -1,0 +1,93 @@
+abstract classes and interfaces
+
+abstract classes{ //compare to concrete classes, who has promises(public methods) and deleiver promises(implementations)
+	1.it can only be extended but not instantiated(示例)
+	2.it contains methods that must be overriden by the subclass
+	3.it has promises and deliver some of the promises
+
+	#such as:
+	public abstract class Animal {
+	public abstract boid eat()
+	public abstract void sleep()
+	}
+	4.it can also contain non-abstract method, but a class that contain abstract method must be abstract class
+
+	5.when override, wrtie @override to clarify
+
+	how to use it:
+	#public abstract class Track implements Vehicle
+	#public cass FireTrack extends Track impelents FireDistinguish
+}
+
+interface{ // have promises but seldom deliver
+	1.&is like an abstract class except that it honly has public abstract methods and public default methods
+	2.it cannot have instances except for public static final
+	3.interface can implement interface
+
+	#such as
+	Iterator{
+	public boolean hasNExt()
+	public Object next()
+	default void remove()
+	}
+
+	a class can implement interface by: implements interfaceName
+	#such as
+	public class IteratorClass implements Iterator{
+	hasNExt
+	next
+	remove
+	other methods
+	}
+
+	advantage:
+	1.a class can implement various interfacesm but it can only extend one superclass
+	2.if you want to search a word in the dictionary and the Internet, then make an interface just for searching words, and computer and dictionary both 
+	 implement that interface 
+	only class can implements interfaces
+}
+
+Collection classes{ //集合框架
+	&collection classes represent collections of data, such as set and list
+
+	collection interface: the collection class implements
+
+	&a set is a group of items with no duplicates
+	set support operations{
+	1.intialization
+	2.add a non-exist item to the set
+	3.remove an element
+	4.check if an item is in the set
+	5.check ifEmpty
+	}
+
+	a set is a sub-interface of COllection (it itself is an interface){
+	how to define:public interface set extend Collection{
+
+	}
+	}
+
+	the list interface{
+	1.initialize
+	2.add
+	3.remove
+	4.check if a given item is in the set
+	5.identify the value at a given position
+	6.check isEmpty
+	}
+
+
+
+
+}
+
+
+lecture notes{
+	BC extend A, D extends B, and call a foo() in D causes confusion
+	if C implements two interfaces AB with default foo, then we have to use b.super.foo() to distinguish which one to call
+
+    about the question I ask {
+    1.interface has the attributions(methods) that some classes share, so they can just implement the same method, but they need to override the exact method on them own
+    2.abstract class can implement interface and make some of the interface's promise(method) comes true, and after this if some classes extend this abstract class they no longer need to write this method by themselves. but for the ones that abstract class also abstract blablabla ,they have to realize these methods all by themselves
+    }
+}

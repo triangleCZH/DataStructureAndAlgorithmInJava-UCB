@@ -1,0 +1,62 @@
+lab 10 generics and iterators 
+
+generics {
+	#such as:
+	public class Box <T> {
+	private T item;
+	public void putItem(T item) ；
+	public T getITem() {
+	return item;
+	}
+	}
+	where T is a type parameter, is a place holder for any type
+
+	! box<point> = new box <Tracepoint> () does not work because the T at both sides need to be exactly the same 
+
+	make a skeleton , a format of class, and leave the datatype to be T, which can be replaced by a specific type:
+	build a cat house, build a dog house -> build a house that both cat and dog can go in:
+	AnimalHouse <T>
+	and we can do: AnimalHouse<dog> h = new AinmalHouse<>();
+
+	but if we don't want people also to live in the house, we make a bound for it :
+	AnimalHOuse<T extends Animal>, then T should be a subclass of animal class or from animal class
+
+	but to creat an array, T[] arra = new T[] will have runtime error, because T is unknown
+	can do T[] arra = (T[]) new object[3];
+
+	can do:
+	Pair House< T extends Animal,S extends Human> extends AnimalHouse<T>
+}
+
+iterator {
+	interface Iterator<T> {
+	boolean hasNext();
+	T next();
+	}
+
+	interface Iterable <T> {
+	Iterator<T> iterator();
+	}
+
+     
+	while(it.hasNext()) {
+	it.next();
+	}
+	the first next() goes to the first element, and after the last item is pointed to, it is not appicable to go next again, so first do the hasNext check is very important
+ 
+    arrayLIst implement Iteratable;
+	Iterator<string>a = arrayList.Iterator();
+	and then we can use a to iterate, but it never really change arrayList
+
+	Iterator method{
+	    {
+	    initIterator: Iterator iter = initIterator(); // initiallize a new iteration
+	    hasNext
+	    next//the first call returns first value and second call returns second value
+
+	    }
+	}
+
+	xiterator and xiterator.next() don't have the same datatype, the latter one has the same type as in <>
+
+}
